@@ -1,0 +1,9 @@
+# Word lock/temp files
+~$*.docx
+
+# Intermediate base64 dumps used only to embed images into the HTML during
+# the build process — the data is already inlined in the pages themselves.
+img/*.b64
+
+# Analysis crops made while reviewing the design mockup — not project assets.
+img/crops/

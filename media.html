@@ -48,10 +48,10 @@
       <a href="contact.html">Contact</a>
     </nav>
     <a class="btn btn-navy nav-cta" href="contact.html">Schedule a Discovery Call</a>
-    <label class="burger" for="nav-toggle" aria-label="Open menu"></label>
+    <label class="burger" for="nav-toggle" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" role="button" tabindex="0"><span></span></label>
   </div>
   <input type="checkbox" id="nav-toggle" />
-  <nav class="mobile-menu">
+  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="speaking.html">Speaking</a>
@@ -156,5 +156,6 @@
 </div>
 <script src="assets/js/modal.js"></script>
 
+<script src="assets/js/nav.js"></script>
 </body>
 </html>

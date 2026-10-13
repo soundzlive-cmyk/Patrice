@@ -528,3 +528,89 @@ h2.wide, .problem h2.wide, .transform h2.wide{max-width:30ch;}
 .quiz-session{font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin:0 0 6px !important;}
 .quiz-step + .quiz-step{margin-top:12px;}
 .assess-card .assess-meta strong{color:var(--navy);}
+
+/* ============ Mobile-friendly refinements ============ */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:84px;}
+body{overflow-wrap:break-word;}
+
+/* Inputs at 16px+ so iOS Safari doesn't zoom in on focus */
+input, select, textarea, .capture input, .modal-form input, .field input, .field select, .field textarea{font-size:16px;}
+.field select{width:100%;max-width:100%;}
+
+/* Contact page: grid children can shrink (long <select> options caused sideways scroll) */
+.contact-grid > *{min-width:0;}
+
+/* Comfortable tap targets (44px minimum) */
+.socials a{width:44px;height:44px;}
+.socials svg{width:18px;height:18px;}
+.modal-close{width:44px;height:44px;top:10px;right:10px;}
+.burger{width:44px;height:44px;}
+.text-link{padding-block:10px;}
+.pdf-link{padding-block:10px;}
+.mobile-menu a{padding:14px 4px;}
+.burger:focus-visible, .quiz-opt:focus-visible, .btn:focus-visible, a:focus-visible{outline:2px solid var(--orange);outline-offset:2px;}
+
+/* Mobile menu: animate open, keyboard-accessible toggle */
+.burger{position:relative;}
+.burger::before, .burger::after, .burger span{transition:transform .2s ease, opacity .2s ease;}
+.site-nav.menu-open .burger::before{transform:translateY(6px) rotate(45deg);}
+.site-nav.menu-open .burger::after{transform:translateY(-6px) rotate(-45deg);}
+.site-nav.menu-open .burger span{opacity:0;}
+
+@media(max-width:699px){
+  section{padding-block:48px;}
+  .hero .wrap{gap:28px;}
+  .hero{padding-top:32px;}
+  .hero h1{font-size:clamp(2rem,8vw,2.4rem);}
+  .hero .subhead{font-size:1rem;}
+
+  /* Full-width, single-line buttons on phones */
+  .hero-actions{flex-direction:column;gap:12px;margin-top:26px;}
+  .hero-actions .btn, .assess-card .btn, .final-copy .btn, .capture .btn, .quiz-actions .btn, .book-copy .btn{
+    width:100%;text-align:center;align-self:stretch;
+  }
+  .capture{max-width:none;}
+  .capture input{flex-basis:100%;}
+
+  /* Header: name only on small phones; tagline stays in the footer */
+  .site-nav .brand .tag{display:none;}
+  .site-nav .brand .name{font-size:1.25rem;}
+
+  /* Hero photo shorter so the next section peeks in */
+  .hero-photo{aspect-ratio:4/4.4;}
+  .meet-photo{aspect-ratio:4/4.2;}
+
+  /* Decorative guide card repeats the copy above it */
+  .lead-block .guide-mock{display:none;}
+
+  .panel{padding:26px 20px;}
+  .problem-grid{gap:22px 16px;}
+  .problem-item p{font-size:.95rem;}
+  .cred-grid{gap:12px;}
+  .eyebrow{font-size:.78rem;}
+  .keynote{padding:26px 22px;}
+  .topic-photo{min-height:220px;}
+  .topic-photo-label{padding:22px;}
+  .topic-list{padding:4px 20px;}
+  .topic{gap:14px;padding:20px 0;}
+  .offer{padding:24px 22px;}
+  .assess-card{padding:26px 20px;}
+  .final-copy{padding:48px 20px;}
+  .final-photo{aspect-ratio:4/3;}
+  .pullquote blockquote{font-size:1.35rem;}
+  .mission-close{font-size:1.15rem;}
+  footer .wrap{justify-content:center;text-align:center;}
+  footer .brand{width:100%;text-align:center;}
+  .socials{justify-content:center;width:100%;}
+
+  /* Popups fill the phone screen comfortably */
+  .modal-overlay{padding:12px;align-items:flex-end;}
+  .modal{max-height:92vh;border-radius:12px;}
+  .quiz-body{padding:28px 20px 24px;}
+  .quiz-q{min-height:0;}
+}
+.brand a{display:flex;flex-direction:column;justify-content:center;min-height:44px;}
+.mobile-menu a.btn{color:#fff;border-bottom:0;padding:14px 26px;}
+.burger{-webkit-tap-highlight-color:transparent;}
+.contact-grid h2{margin-inline:0;max-width:none;text-align:left;}
+@media(max-width:699px){ .contact-info .socials{justify-content:flex-start;} }

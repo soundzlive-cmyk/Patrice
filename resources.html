@@ -94,12 +94,13 @@
           <p>But what if fear is influencing your decisions without you recognizing it?</p>
           <p>Take this free assessment to explore the patterns that may be affecting your peace, confidence, and purpose. Discover where you may be holding yourself back and receive a practical next step to begin moving forward.</p>
           <ul class="assess-areas">
-            <li><strong>My Peace</strong> &mdash; inner stability and clarity under pressure</li>
-            <li><strong>My Power</strong> &mdash; confidence, voice, and self-trust</li>
-            <li><strong>My Purpose</strong> &mdash; alignment, courage, and direction</li>
+            <li><strong>Peace</strong> &mdash; quieting your thoughts, boundaries, and the pressure to please</li>
+            <li><strong>Power</strong> &mdash; decisions, self-trust, and using your voice</li>
+            <li><strong>Purpose</strong> &mdash; values, direction, and meaningful goals</li>
           </ul>
-          <p class="assess-meta">12 questions &middot; about 3 minutes</p>
+          <p class="assess-meta"><strong>Who it&rsquo;s for:</strong> individuals, professionals, executives, and faith-based coaching clients<br>9 questions &middot; about 2 minutes</p>
           <button type="button" class="btn btn-navy" data-quiz="individual">Take the Free Assessment</button>
+          <a class="pdf-link" href="assets/downloads/Whats-Holding-You-Back-Assessment.pdf" download>Prefer paper? Download the printable version (PDF)</a>
         </article>
         <article class="assess-card">
           <span class="eyebrow">For Leaders &amp; Teams</span>
@@ -112,8 +113,9 @@
             <li><strong>Confidence &amp; Communication</strong> &mdash; how effectively people speak up, make decisions, and take ownership</li>
             <li><strong>Alignment &amp; Purpose</strong> &mdash; how clearly your team understands its priorities and direction</li>
           </ul>
-          <p class="assess-meta">12 questions &middot; about 3 minutes</p>
+          <p class="assess-meta"><strong>Who it&rsquo;s for:</strong> executives, HR leaders, managers, and organizational decision-makers<br>9 questions &middot; about 2 minutes</p>
           <button type="button" class="btn btn-navy" data-quiz="team">Take the Leadership Assessment</button>
+          <a class="pdf-link" href="assets/downloads/Whats-Holding-Your-Team-Back-Assessment.pdf" download>Prefer paper? Download the printable version (PDF)</a>
           <p class="fine">Designed as a conversation starter for leadership development, not a validated measure of team performance.</p>
         </article>
       </div>
@@ -147,20 +149,42 @@
   <section class="lead-block alt" id="guide">
     <div class="wrap">
       <div class="lead-copy">
-        <span class="eyebrow">Free Guide</span>
-        <p class="guide-title">[Lead Magnet Title]</p>
-        <p class="lede">A short, practical guide to help you move from fear to freedom &mdash; reclaiming your peace, owning your power, and stepping into your purpose. Built on the same Peace, Power, Purpose Framework Patrice teaches in her coaching, keynotes, and workshops.</p>
-        <form class="capture" onsubmit="return false;">
-          <input type="text" placeholder="First name" disabled />
-          <input type="email" placeholder="Your email address" disabled />
-          <button type="button" class="btn btn-orange" disabled>Send Me the Guide</button>
+        <span class="eyebrow">Free 7-Day Guide</span>
+        <h2 class="guide-heading">From Fear to Freedom</h2>
+        <p class="guide-title">Your 7-Day Guide to Reclaiming Peace, Building Confidence &amp; Moving Forward with Purpose</p>
+        <p class="lede">You can appear successful on the outside and still wrestle with fear, self-doubt, or the pressure to meet everyone&rsquo;s expectations. This guide is an invitation to notice those patterns without judgment and take small, meaningful steps toward change &mdash; just 10 to 15 minutes a day.</p>
+        <ul class="guide-days">
+          <li><span>1</span>Name the Fear</li>
+          <li><span>2</span>Separate Facts from Fear</li>
+          <li><span>3</span>Protect Your Peace</li>
+          <li><span>4</span>Practice a Courageous Decision</li>
+          <li><span>5</span>Use Your Voice</li>
+          <li><span>6</span>Reconnect with Purpose</li>
+          <li><span>7</span>Choose Your Next Chapter</li>
+        </ul>
+        <form class="capture" id="guide-form" novalidate>
+          <label class="sr-only" for="guide-first">First name</label>
+          <input id="guide-first" name="firstName" type="text" placeholder="First name" autocomplete="given-name" required />
+          <label class="sr-only" for="guide-email">Email address</label>
+          <input id="guide-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required />
+          <button type="submit" class="btn btn-orange">Send Me the Guide</button>
         </form>
-        <p class="fine">No spam. Unsubscribe anytime.</p>
-        <p class="placeholder-note">Studio note: guide title, PDF, and email delivery still need to be connected before this goes live &mdash; form shown for layout only.</p>
+        <p class="form-error" id="guide-error" hidden>Something went wrong. Please try again in a moment.</p>
+        <div class="guide-done" id="guide-done" hidden>
+          <p><strong>Thank you!</strong> Your guide is ready.</p>
+          <a class="btn btn-navy" href="assets/downloads/From-Fear-to-Freedom-7-Day-Guide.pdf" download>Download the 7-Day Guide (PDF)</a>
+        </div>
+        <p class="fine">A companion to the free &ldquo;What&rsquo;s Really Holding You Back?&rdquo; self-assessment. No spam. Unsubscribe anytime.</p>
+        <p class="placeholder-note">Studio note: connect an email service in assets/js/guide.js before launch &mdash; until then the guide downloads but email addresses aren&rsquo;t saved.</p>
       </div>
       <div>
-        <div class="book-cover" style="max-width:320px;">
-          <picture><source srcset="img/web/book.webp" type="image/webp"><img src="img/web/book.jpg" alt="Addicted to Fear: My Journey to Freedom, by Patrice Y. Ambroise" width="500" height="780" loading="lazy" decoding="async" /></picture>
+        <div class="guide-mock">
+          <div>
+            <span class="tag">Free 7-Day Guide</span>
+            <div class="gtitle">From Fear to Freedom</div>
+            <p class="gsub">Reclaiming Peace, Building Confidence &amp; Moving Forward with Purpose</p>
+          </div>
+          <div class="by">Patrice Ambroise<br><span>The Peace and Power Strategist</span></div>
         </div>
       </div>
     </div>
@@ -185,8 +209,8 @@
   <section class="final" id="final">
     <div class="final-grid">
       <div class="final-copy">
-        <h2>You don't have to remain where you are.</h2>
-        <p>Peace doesn't come after success. Peace comes first. Let's build the confidence, clarity, and courage to lead the life you were created to live.</p>
+        <h2>You don’t have to remain where you are.</h2>
+        <p>Peace doesn’t come after success. Peace comes first. Let’s build the confidence, clarity, and courage to lead the life you were created to live.</p>
         <a class="btn btn-orange" href="contact.html">Schedule a Consultation</a>
       </div>
       <div class="final-photo">
@@ -200,7 +224,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <div class="brand"><a href="index.html" style="text-decoration:none;"><div class="name">Patrice Ambroise</div><div class="tag">Empowerment Strategist &middot; Author &middot; Speaker</div></a></div>
-    <div class="copy">&copy; 2024 Patrice Ambroise. All Rights Reserved.</div>
+    <div class="copy">&copy; 2026 Patrice Ambroise. All Rights Reserved.</div>
     <div class="socials">
       <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="10" x2="7" y2="17"/><line x1="7" y1="7" x2="7" y2="7"/><path d="M11 17v-4.5c0-1.4 1-2.5 2.5-2.5s2.5 1.1 2.5 2.5V17"/><line x1="11" y1="10" x2="11" y2="17"/></svg></a>
       <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 21v-7h2.5l.5-3H14V9c0-1 .3-1.7 1.7-1.7H17V4.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8v3h2.8v7z"/></svg></a>
@@ -238,5 +262,14 @@
   </div>
 </div>
 <script src="assets/js/assessment.js"></script>
+
+<div class="modal-overlay" id="quiz-modal">
+  <div class="modal quiz" role="dialog" aria-modal="true" aria-labelledby="quiz-title">
+    <button type="button" class="modal-close" data-modal-close aria-label="Close">&times;</button>
+    <div class="quiz-body" id="quiz-body" aria-live="polite"></div>
+  </div>
+</div>
+<script src="assets/js/assessment.js"></script>
+<script src="assets/js/guide.js"></script>
 </body>
 </html>

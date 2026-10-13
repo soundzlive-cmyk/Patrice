@@ -506,3 +506,25 @@ h2.wide, .problem h2.wide, .transform h2.wide{max-width:30ch;}
 .quiz-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
 .quiz-retake{margin-top:18px;}
 @media(max-width:440px){.brand .tag{letter-spacing:.05em;font-size:.56rem;}}
+
+/* resources: guide + pdf links */
+[hidden]{display:none !important;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;}
+.guide-heading{font-size:clamp(1.8rem,2vw + 1rem,2.4rem);}
+.lead-copy .guide-title{font-style:italic;color:var(--navy);margin-top:8px;}
+.guide-days{list-style:none;padding:0;margin:24px 0 0;display:grid;grid-template-columns:1fr;gap:8px 20px;max-width:520px;}
+@media(min-width:520px){.guide-days{grid-template-columns:1fr 1fr;}}
+.guide-days li{display:flex;align-items:center;gap:10px;font-size:.92rem;font-weight:600;color:var(--navy);}
+.guide-days span{width:24px;height:24px;border-radius:50%;background:var(--navy);color:var(--orange-soft);font-family:var(--serif);font-size:.8rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.capture button{cursor:pointer;}
+.form-error{color:#b3261e;font-size:.88rem;margin-top:10px;}
+.guide-done{margin-top:28px;padding:20px;background:#fff;border:1px solid var(--border);border-left:3px solid var(--orange);border-radius:6px;max-width:460px;}
+.guide-done p{margin:0 0 14px;}
+.guide-mock .gsub{font-size:.95rem;color:var(--on-navy-muted);margin:12px 0 0;line-height:1.5;}
+.guide-mock .by{color:#fff;font-family:var(--serif);font-size:1.05rem;}
+.guide-mock .by span{font-family:var(--sans);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-soft);font-weight:700;}
+.pdf-link{display:inline-block;margin-top:14px;font-size:.85rem;color:var(--orange);font-weight:600;}
+.quiz-intro{margin:10px 0 0;color:var(--text-muted);font-size:.92rem;}
+.quiz-session{font-family:var(--serif);font-size:1.2rem;color:var(--navy);margin:0 0 6px !important;}
+.quiz-step + .quiz-step{margin-top:12px;}
+.assess-card .assess-meta strong{color:var(--navy);}

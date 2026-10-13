@@ -19,7 +19,7 @@ body{
   margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);
   line-height:1.65;-webkit-font-smoothing:antialiased;
 }
-img{max-width:100%;display:block;}
+img{max-width:100%;height:auto;display:block;}
 a{color:inherit;}
 .wrap{max-width:1200px;margin:0 auto;padding-inline:20px;}
 @media(min-width:700px){.wrap{padding-inline:40px;}}
@@ -341,3 +341,6 @@ body.no-scroll{overflow:hidden;}
 .modal-close:hover{background:#fff;}
 
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+/* <picture> wrappers (WebP + JPEG fallback) shouldn't affect layout */
+picture{display:contents;}

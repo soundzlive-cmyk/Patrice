@@ -614,3 +614,7 @@ input, select, textarea, .capture input, .modal-form input, .field input, .field
 .burger{-webkit-tap-highlight-color:transparent;}
 .contact-grid h2{margin-inline:0;max-width:none;text-align:left;}
 @media(max-width:699px){ .contact-info .socials{justify-content:flex-start;} }
+
+/* Portrait photos: keep faces in frame when cropped */
+.topic-photo img{object-position:center 18%;}
+.final-photo img, .hero-photo img, .meet-photo img{object-position:center 12%;}

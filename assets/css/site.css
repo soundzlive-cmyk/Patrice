@@ -618,3 +618,26 @@ input, select, textarea, .capture input, .modal-form input, .field input, .field
 /* Portrait photos: keep faces in frame when cropped */
 .topic-photo img{object-position:center 18%;}
 .final-photo img, .hero-photo img, .meet-photo img{object-position:center 12%;}
+
+/* ============ Home: book sale tile ============ */
+.book-tile{
+  display:grid;grid-template-columns:1fr;gap:32px;align-items:center;
+  background:#ECEAE5;border:1px solid var(--border);border-radius:10px;
+  padding:clamp(28px,4vw,56px);
+}
+@media(min-width:820px){.book-tile{grid-template-columns:minmax(220px,300px) 1fr;gap:56px;}}
+.book-tile-cover{max-width:260px;width:100%;margin-inline:auto;border-radius:4px;overflow:hidden;box-shadow:0 22px 44px -20px rgba(20,35,56,.45);}
+.book-tile-copy h2{font-size:clamp(1.6rem,2vw + 1rem,2.3rem);line-height:1.2;}
+.book-tile-lede{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--navy);margin:0;}
+.book-tile-copy p{max-width:56ch;}
+.book-tile-copy p + p{margin-top:12px;color:var(--text);opacity:.9;}
+.book-tile-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;margin-top:26px;}
+.book-tile-actions .btn{padding:15px 40px;font-size:1rem;}
+.book-tile-stores{font-size:.84rem;color:var(--text-muted);max-width:34ch;}
+@media(max-width:699px){
+  .book-tile{padding:28px 20px;text-align:center;}
+  .book-tile-cover{max-width:200px;}
+  .book-tile .rule{margin-inline:auto;}
+  .book-tile-actions{justify-content:center;}
+  .book-tile-actions .btn{width:100%;}
+}

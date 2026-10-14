@@ -647,8 +647,15 @@ input, select, textarea, .capture input, .modal-form input, .field input, .field
   .final-photo img{object-position:center 18%;}
 }
 @media(max-width:899px){
-  /* Phones/tablets: drop the photo and tighten spacing so the band is about half as tall */
-  .final-photo{display:none;}
+  /* Phones/tablets: photo becomes a short banner strip, spacing tightened */
+  .final-photo{display:block;aspect-ratio:auto;height:150px;}
+  .final-photo img{object-position:center 15%;}
+  .final-photo img[src*="cta"]{object-position:center 26%;}
   .final-copy{padding:36px 20px;}
 }
-@media(min-width:700px) and (max-width:899px){ .final-copy{padding:40px 40px;} }
+@media(min-width:700px) and (max-width:899px){
+  .final-grid{grid-template-columns:1.25fr .75fr;}
+  .final-copy{padding:36px 40px;}
+  .final-photo{height:auto;min-height:300px;}
+  .final-photo img{object-position:center 15%;}
+}

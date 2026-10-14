@@ -619,25 +619,19 @@ input, select, textarea, .capture input, .modal-form input, .field input, .field
 .topic-photo img{object-position:center 18%;}
 .final-photo img, .hero-photo img, .meet-photo img{object-position:center 12%;}
 
-/* ============ Home: book sale tile ============ */
+/* ============ Home: book sale tile (mirrors the "Get Your Copy" popup) ============ */
 .book-tile{
-  display:grid;grid-template-columns:1fr;gap:32px;align-items:center;
-  background:#ECEAE5;border:1px solid var(--border);border-radius:10px;
-  padding:clamp(28px,4vw,56px);
+  display:grid;grid-template-columns:1fr;max-width:860px;margin-inline:auto;overflow:hidden;
+  background:#ECEAE5;border:1px solid var(--border);border-radius:8px;
+  box-shadow:0 30px 70px -34px rgba(20,35,56,.45);
 }
-@media(min-width:820px){.book-tile{grid-template-columns:minmax(220px,300px) 1fr;gap:56px;}}
-.book-tile-cover{max-width:260px;width:100%;margin-inline:auto;border-radius:4px;overflow:hidden;box-shadow:0 22px 44px -20px rgba(20,35,56,.45);}
-.book-tile-copy h2{font-size:clamp(1.6rem,2vw + 1rem,2.3rem);line-height:1.2;}
-.book-tile-lede{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--navy);margin:0;}
-.book-tile-copy p{max-width:56ch;}
-.book-tile-copy p + p{margin-top:12px;color:var(--text);opacity:.9;}
-.book-tile-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px;margin-top:26px;}
-.book-tile-actions .btn{padding:15px 40px;font-size:1rem;}
-.book-tile-stores{font-size:.84rem;color:var(--text-muted);max-width:34ch;}
-@media(max-width:699px){
-  .book-tile{padding:28px 20px;text-align:center;}
-  .book-tile-cover{max-width:200px;}
-  .book-tile .rule{margin-inline:auto;}
-  .book-tile-actions{justify-content:center;}
-  .book-tile-actions .btn{width:100%;}
-}
+@media(min-width:700px){.book-tile{grid-template-columns:.85fr 1.15fr;}}
+.book-tile-image{background:var(--navy);}
+.book-tile-image img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+@media(max-width:699px){.book-tile-image img{max-height:340px;}}
+.book-tile-body{padding:clamp(28px,4.5vw,52px);display:flex;flex-direction:column;justify-content:center;}
+.book-tile-body h2{font-size:clamp(1.6rem,2vw + 1rem,2.2rem);}
+.book-tile-body .lede{margin-top:14px;color:var(--text-muted);max-width:44ch;}
+.book-tile-actions{margin-top:26px;}
+.book-tile-actions .btn{width:100%;text-align:center;padding:15px 26px;font-size:1rem;}
+.book-tile-stores{margin-top:14px;font-size:.84rem;color:var(--text-muted);}

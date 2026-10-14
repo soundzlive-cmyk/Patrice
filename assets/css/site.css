@@ -635,3 +635,20 @@ input, select, textarea, .capture input, .modal-form input, .field input, .field
 .book-tile-actions{margin-top:26px;}
 .book-tile-actions .btn{width:100%;text-align:center;padding:15px 26px;font-size:1rem;}
 .book-tile-stores{margin-top:14px;font-size:.84rem;color:var(--text-muted);}
+
+/* ============ Closing call-to-action: compact (≈50% height) ============ */
+.final-copy h2{font-size:clamp(1.45rem,1.1vw + 1rem,1.85rem);line-height:1.25;max-width:30ch;}
+.final-copy p{margin-top:12px;font-size:.95rem;}
+.final-copy .btn{margin-top:20px;}
+@media(min-width:900px){
+  .final-grid{grid-template-columns:1.25fr .75fr;}
+  .final-copy{padding:32px 56px;}
+  .final-photo{height:400px;}
+  .final-photo img{object-position:center 18%;}
+}
+@media(max-width:899px){
+  /* Phones/tablets: drop the photo and tighten spacing so the band is about half as tall */
+  .final-photo{display:none;}
+  .final-copy{padding:36px 20px;}
+}
+@media(min-width:700px) and (max-width:899px){ .final-copy{padding:40px 40px;} }

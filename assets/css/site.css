@@ -650,7 +650,7 @@ input, select, textarea, .capture input, .modal-form input, .field input, .field
   /* Phones/tablets: photo becomes a short banner strip, spacing tightened */
   .final-photo{display:block;aspect-ratio:auto;height:150px;}
   .final-photo img{object-position:center 15%;}
-  .final-photo img[src*="cta"]{object-position:center 26%;}
+  .final-photo img[src*="headset"]{object-position:center 26%;}
   .final-copy{padding:36px 20px;}
 }
 @media(min-width:700px) and (max-width:899px){

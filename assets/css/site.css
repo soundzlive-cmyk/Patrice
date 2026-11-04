@@ -659,3 +659,4 @@ input, select, textarea, .capture input, .modal-form input, .field input, .field
   .final-photo{height:auto;min-height:300px;}
   .final-photo img{object-position:center 15%;}
 }
+.book-copy .book-title{margin-inline:0;max-width:none;text-align:left;}

@@ -52,14 +52,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Auto-open: any element carrying data-modal-autoopen="<id>" triggers that
-  // modal shortly after load, but only on a first visit or a new session
-  // (i.e. no pa_modal_seen session cookie present yet).
+  // Auto-open: any page whose <body> carries data-modal-autoopen="<id>"
+  // (currently only the home page) opens that modal shortly after every load,
+  // on all devices.
   var autoTrigger = document.querySelector('[data-modal-autoopen]');
-  // Skipped on phones: a full-screen popup on arrival hurts mobile usability
-  // (and Google's mobile ranking). The popup still opens from its buttons.
-  var isPhone = window.matchMedia('(max-width: 699px)').matches;
-  if (autoTrigger && !isPhone && !getCookie(SEEN_COOKIE)) {
+  if (autoTrigger) {
     window.setTimeout(function () {
       openModal(document.getElementById(autoTrigger.getAttribute('data-modal-autoopen')));
     }, 1200);

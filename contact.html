@@ -75,20 +75,21 @@
       <div>
         <span class="eyebrow">Send a Message</span>
         <h2 style="margin-bottom:4px;">Tell Me What You Need.</h2>
-        <form class="form-grid" onsubmit="return false;">
+        <form class="form-grid" id="contact-form" novalidate>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
           <div class="two-col">
             <div class="field">
               <label for="name">Name</label>
-              <input id="name" type="text" placeholder="Your name" disabled />
+              <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" maxlength="100" required />
             </div>
             <div class="field">
               <label for="email">Email</label>
-              <input id="email" type="email" placeholder="you@example.com" disabled />
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" maxlength="254" required />
             </div>
           </div>
           <div class="field">
             <label for="subject">What are you reaching out about?</label>
-            <select id="subject" disabled>
+            <select id="subject" name="subject">
               <option>General Inquiry</option>
               <option>Executive &amp; Leadership Coaching</option>
               <option>Personal Transformation Coaching</option>
@@ -102,11 +103,14 @@
           </div>
           <div class="field">
             <label for="message">Message</label>
-            <textarea id="message" rows="5" placeholder="Tell me a bit about what you’re looking for…" disabled></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me a bit about what you’re looking for…" maxlength="5000" required></textarea>
           </div>
-          <button type="button" class="btn btn-navy" style="align-self:flex-start;margin-top:6px;" disabled>Send Message</button>
+          <button type="submit" class="btn btn-navy" style="align-self:flex-start;margin-top:6px;">Send Message</button>
         </form>
-        <p class="placeholder-note">Studio note: form is visual only &mdash; connect it to a real submission service (e.g. Formspree, Netlify Forms) before launch.</p>
+        <p class="form-error" id="contact-error" hidden>Something went wrong. Please try again, or email <a href="mailto:contact@patriceambroise.com">contact@patriceambroise.com</a>.</p>
+        <div class="guide-done" id="contact-done" hidden tabindex="-1">
+          <p><strong>Thank you!</strong> Your message has been sent. Patrice will be in touch soon.</p>
+        </div>
       </div>
 
       <div class="contact-info">
@@ -147,6 +151,7 @@
   </div>
 </footer>
 
+<script src="assets/js/contact.js"></script>
 <script src="assets/js/nav.js"></script>
 </body>
 </html>

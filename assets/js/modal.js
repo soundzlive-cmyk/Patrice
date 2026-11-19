@@ -1,5 +1,14 @@
 var SEEN_COOKIE = 'pa_modal_seen';
 
+/*
+ * "Get Your Copy" / "Notify Me" email sign-up in the modal.
+ * TO START COLLECTING EMAILS: paste a form endpoint below (e.g. a Formspree URL
+ * https://formspree.io/f/xxxxxxx). Each sign-up is POSTed as JSON { email, source }.
+ * Until it's set, the form still validates and shows the thank-you message,
+ * but addresses are NOT saved anywhere.
+ */
+var NOTIFY_FORM_ENDPOINT = '';
+
 function getCookie(name) {
   var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
   return match ? decodeURIComponent(match[1]) : null;
@@ -17,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.classList.add('open');
     document.body.classList.add('no-scroll');
     setSessionCookie(SEEN_COOKIE, '1');
+    var firstInput = overlay.querySelector('input:not([disabled]):not([hidden])');
     var closeBtn = overlay.querySelector('[data-modal-close]');
-    if (closeBtn) closeBtn.focus();
+    var target = firstInput || closeBtn;
+    if (target) target.focus({ preventScroll: true });
   }
 
   function closeModal(overlay) {
@@ -50,6 +61,42 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') {
       document.querySelectorAll('.modal-overlay.open').forEach(closeModal);
     }
+  });
+
+  document.querySelectorAll('form[data-notify-form]').forEach(function (form) {
+    var body = form.parentNode;
+    var done = body.querySelector('[data-notify-done]');
+    var err = body.querySelector('[data-notify-error]');
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn ? btn.textContent : '';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (err) err.hidden = true;
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      function success() {
+        form.hidden = true;
+        if (done) done.hidden = false;
+      }
+
+      if (!NOTIFY_FORM_ENDPOINT) { success(); return; }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+      fetch(NOTIFY_FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ email: form.elements.email.value.trim(), source: 'Addicted to Fear - home page modal' })
+      }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        success();
+      }).catch(function () {
+        if (err) err.hidden = false;
+        btn.disabled = false;
+        btn.textContent = label;
+      });
+    });
   });
 
   // Auto-open: any page whose <body> carries data-modal-autoopen="<id>"

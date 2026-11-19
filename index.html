@@ -330,14 +330,14 @@
       <span class="eyebrow">From Fear to Freedom</span>
       <h2 id="book-modal-title">Get Your Copy</h2>
       <p class="lede">Leave your email to hear about new releases, excerpts, and updates on <em>Addicted to Fear</em>.</p>
-      <form class="modal-form" data-notify-form novalidate>
+      <form class="modal-form" data-notify-form data-notify-source="Addicted to Fear - home page modal" novalidate>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
         <label class="sr-only" for="book-modal-email">Email address</label>
         <input id="book-modal-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required />
         <button type="submit" class="btn btn-orange">Notify Me</button>
       </form>
       <p class="form-error" data-notify-error hidden>Something went wrong. Please try again in a moment.</p>
       <p class="modal-fine" data-notify-done hidden><strong>Thank you!</strong> You&rsquo;re on the list &mdash; we&rsquo;ll be in touch with updates on <em>Addicted to Fear</em>.</p>
-      <p class="placeholder-note modal-fine">Studio note: set NOTIFY_FORM_ENDPOINT in assets/js/modal.js to start saving emails &mdash; until then sign-ups show the thank-you message but aren&rsquo;t stored.</p>
     </div>
   </div>
 </div>

@@ -7,7 +7,7 @@ var SEEN_COOKIE = 'pa_modal_seen';
  * Until it's set, the form still validates and shows the thank-you message,
  * but addresses are NOT saved anywhere.
  */
-var NOTIFY_FORM_ENDPOINT = '';
+var NOTIFY_FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzuanCpYCrgSpm1Z90yyEGkZTK0oeQ1gPLcfaiQr_JdOrb0NW8RAd1RY4LTJDwWuJGm/exec';
 
 function getCookie(name) {
   var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     overlay.classList.add('open');
     document.body.classList.add('no-scroll');
     setSessionCookie(SEEN_COOKIE, '1');
-    var firstInput = overlay.querySelector('input:not([disabled]):not([hidden])');
+    var firstInput = overlay.querySelector('input:not([disabled]):not([hidden]):not([name="website"])');
     var closeBtn = overlay.querySelector('[data-modal-close]');
     var target = firstInput || closeBtn;
     if (target) target.focus({ preventScroll: true });
@@ -84,12 +84,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
       btn.disabled = true;
       btn.textContent = 'Sending…';
+      // text/plain keeps this a "simple" request, so the browser skips the
+      // CORS preflight that Google Apps Script can't answer.
       fetch(NOTIFY_FORM_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({ email: form.elements.email.value.trim(), source: 'Addicted to Fear - home page modal' })
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({
+          email: form.elements.email.value.trim(),
+          website: form.elements.website ? form.elements.website.value : '',
+          source: form.getAttribute('data-notify-source') || 'Addicted to Fear - Notify Me',
+          page: location.pathname
+        })
       }).then(function (r) {
         if (!r.ok) throw new Error(r.status);
+        return r.json();
+      }).then(function (res) {
+        if (!res || !res.ok) throw new Error(res && res.error);
         success();
       }).catch(function () {
         if (err) err.hidden = false;

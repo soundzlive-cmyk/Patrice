@@ -218,8 +218,11 @@ footer .wrap{
 }
 footer .brand .name{color:#fff;}
 footer .brand .tag{color:var(--orange-soft);}
-footer .copy{color:var(--on-navy-muted);font-size:.82rem;order:3;flex:1 0 100%;text-align:center;}
-@media(min-width:760px){footer .copy{order:0;flex:none;text-align:left;}}
+footer .copy{color:var(--on-navy-muted);font-size:.82rem;order:3;flex:1 0 100%;text-align:center;
+  border-top:1px solid rgba(255,255,255,.1);padding-top:16px;margin-top:4px;}
+footer .footer-links{display:flex;flex-wrap:wrap;gap:6px 22px;}
+footer .footer-links a{color:#fff;text-decoration:none;font-size:.88rem;padding-block:6px;}
+footer .footer-links a:hover{color:var(--orange-soft);}
 footer .credit{display:block;margin-top:4px;font-size:.75rem;opacity:.85;}
 footer .credit a{color:inherit;text-decoration:underline;text-underline-offset:2px;}
 footer .credit a:hover{color:var(--orange-soft);}
@@ -604,6 +607,7 @@ input, select, textarea, .capture input, .modal-form input, .field input, .field
   .mission-close{font-size:1.15rem;}
   footer .wrap{justify-content:center;text-align:center;}
   footer .brand{width:100%;text-align:center;}
+  footer .footer-links{justify-content:center;width:100%;}
   .socials{justify-content:center;width:100%;}
 
   /* Popups fill the phone screen comfortably */

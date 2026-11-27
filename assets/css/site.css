@@ -220,6 +220,7 @@ footer .brand .name{color:#fff;}
 footer .brand .tag{color:var(--orange-soft);}
 footer .copy{color:var(--on-navy-muted);font-size:.82rem;order:3;flex:1 0 100%;text-align:center;}
 @media(min-width:760px){footer .copy{order:0;flex:none;text-align:left;}}
+footer .credit{display:block;margin-top:4px;font-size:.75rem;opacity:.85;}
 .socials{display:flex;gap:10px;}
 .socials a{
   width:34px;height:34px;border-radius:6px;background:var(--orange);display:flex;align-items:center;
